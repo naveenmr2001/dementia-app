@@ -30,7 +30,7 @@ body{
     font-weight: 400;
     font-size: 24px;
     color: #FFFFFF;
-    margin-left: 80rem;
+    margin-left: 45rem;
     display: flex;
     flex-direction: row;
     gap:2.5rem;
@@ -43,7 +43,7 @@ body{
 
 .login__container{
     width:100%;
-    height:33.375rem;
+    height:26.375rem;
     margin-top: 5rem;
     background-color: #FFFFFF;
     display: flex;
