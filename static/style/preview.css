@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body{
+    background-image: url("../images/neuron-home.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navbar{
+    width:100%;
+    min-height: 7rem;
+    display: flex;
+    align-items: center;
+}
+
+.navbar__header{
+    font-weight: 400;
+    font-size: 24px;
+    color: #FFFFFF;
+    margin-left: 2rem;
+}
+
+.navbar__items{
+    font-weight: 400;
+    font-size: 24px;
+    color: #FFFFFF;
+    margin-left: 39rem;
+    display: flex;
+    flex-direction: row;
+    gap:2.5rem;
+}
+
+.navbar__items a{
+    text-decoration: none;
+    color:#FFFFFF;
+}
+
+.preview__container{
+    width:100%;
+    height:26.375rem;
+    margin-top: 5rem;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+}
+
+.preview__inner__container{
+    width:32rem;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:2rem;
+}
+
+.preview__header{
+    font-weight: 400;
+    font-size:2rem;
+    text-transform: uppercase;
+}

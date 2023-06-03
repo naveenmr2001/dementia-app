@@ -17,16 +17,25 @@
     </div>
     <div class="login__container">
         <div class="login__inner__container">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <div id="flash-message" class="flush-message alert alert-success" role="alert">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
             <span class="login__header">Login</span>
+            <form action="/login" method="post">
             <div class="username">
                 <label for="username">username</label><br/>
-                <input type="text" name="username" />
+                <input type="text" id="username" name="username" />
             </div>
             <div class="password">
                 <label for="password">password</label><br/>
-                <input type="text" name="password" />
+                <input type="text" id="password" name="password" />
             </div>
             <input type="submit" name="submit">
+            </form>
         </div>   
     </div>
 </body>

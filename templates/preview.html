@@ -4,10 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='./style/preview.css') }}">    
     <title>Preview</title>
 </head>
 <body>
-    <img src="{{ image }}">
-    <p>{{ result }}</p>
+    <div class="navbar">
+        <span class="navbar__header">ALZHEIMER’S DIAGNOSIS</span>
+        <div class="navbar__items">
+            <a href="/predict"><span>PREDICT</span></a>
+            <a href="/"><span>SUGGESTION</span></a>
+        </div>
+    </div>
+    <div class="preview__container">
+        <div class="preview__inner__container">
+            <span class="preview__header">Preview</span>
+            {% if result == "NonDemented" %}
+                <img src="{{ image }}">
+                <p>{{ result }}</p>
+            {% else %}
+                <img src="{{ image }}">
+                <p>{{ result }}</p>
+                <button onclick="{{ url_for('register') }}"> Register </button>
+        </div>
+    </div>
 </body>
 </html>
