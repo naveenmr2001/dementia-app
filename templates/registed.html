@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style/registed.css">
+    <title>Registed</title>
+</head>
+<body>
+    <div class="navbar">
+        <span class="navbar__header">ALZHEIMER’S DIAGNOSIS</span>
+        <div class="navbar__items">
+            <a href="/registed"><span>REGISTED</span></a>
+            <a href="/predict"><span>PREDICT</span></a>
+            <a href="/suggestions"><span>SUGGESTIONS</span></a>
+        </div>
+    </div>
+    <div class="register__container">
+        <div class="register__inner__container">
+            {%for each in register%}
+            <div class="register_content">
+                <span><b>ID: </b></span><span>{{ each[0] }}</span><br><br>
+                <span><b>Name: </b></span><span>{{ each[1] }}</span><br><br>
+                <span><b>Address: </b></span><span>{{ each[2] }}</span><br><br>
+                <span><b>Type Of Dementia: </b></span><span>{{ each[3] }}</span><br><br>
+            </div>
+            {%endfor%}
+        </div>   
+    </div>
+</body>
+</html>

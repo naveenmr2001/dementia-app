@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style/register.css">
+    <title>Register</title>
+</head>
+<body>
+    <div class="navbar">
+        <span class="navbar__header">ALZHEIMER’S DIAGNOSIS</span>
+        <div class="navbar__items">
+            <a href="/registed"><span>REGISTED</span></a>
+            <a href="/predict"><span>PREDICT</span></a>
+            <a href="/suggestions"><span>SUGGESTIONS</span></a>
+        </div>
+    </div>
+    <div class="register__container">
+        <div class="register__inner__container">
+            <!-- {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <div id="flash-message" class="flush-message alert alert-success" role="alert">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+            {% endwith %} -->
+            <span class="register__header">Register</span>
+            <form action="{{ url_for('register', result=result) }}" method="post">
+            <div class="id">
+                <label for="id">Patient Id</label><br/>
+                <input type="text" id="id" name="id" />
+            </div>
+            <div class="name">
+                <label for="name">Name</label><br/>
+                <input type="text" id="name" name="name" />
+            </div>
+            <div class="address">
+                <label for="address">Address</label><br/>
+                <input type="text" id="address" name="address"/>
+            </div>
+            <div class="address">
+                <label for="address">Result</label><br/>
+                <input type="text" id="result" name="result" value="{{ result.split(':')[1] }}"/>
+            </div>
+            <input type="submit" name="submit">
+            </form>
+        </div>   
+    </div>
+</body>
+</html>

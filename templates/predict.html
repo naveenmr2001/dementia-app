@@ -4,22 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='./style/predict.css') }}">    
+    <link rel="stylesheet" type="text/css" href="../static/style/predict.css">    
     <title>Predict</title>
 </head>
 <body>
     <div class="navbar">
         <span class="navbar__header">ALZHEIMER’S DIAGNOSIS</span>
         <div class="navbar__items">
+            <a href="/registed"><span>REGISTED</span></a>
             <a href="/predict"><span>PREDICT</span></a>
-            <a href="/"><span>SUGGESTION</span></a>
+            <a href="/suggestions"><span>SUGGESTION</span></a>
         </div>
     </div>
     <div class="predict__container">
         <div class="predict__inner__container">
             <span class="predict__header">Predict</span>
             <form method="POST" enctype="multipart/form-data" action="/predict">
-                <input type="file" id="myFile" name="image">
+                <div class="image-box">
+                    <input type="file" id="myFile" name="image">
+                </div>
                 <input type="submit" value="Submit">
             </form>
           <br>

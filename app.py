@@ -3,7 +3,7 @@ import base64,os,cv2,sqlite3
 from flask import Flask, render_template, request, url_for, redirect,session,flash
 from werkzeug.utils import secure_filename
 import numpy as np
-from database import createLoginTable
+from database import createLoginTable,createRegisterTable,droptableTable
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 UPLOAD_FOLDER = os.path.join('static', 'images')
@@ -11,10 +11,57 @@ ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.secret_key = 'EDCBA'
 
+@app.route('/suggestions',methods=['GET','POST'])
+def suggestions():
+    return render_template('suggestions.html')
+
+@app.route('/registed',methods=['GET','POST'])
+def registed():
+    conn = sqlite3.connect('database.db',check_same_thread=False)
+    cursor = conn.execute("SELECT * FROM register")
+    rows = cursor.fetchall()
+    registed_list = []
+    for i in rows:
+        print(i)
+        id , name , address, result = i[0] , i[1] , i[2] , i[3]
+        registed_list.append([id,name,address,result])
+    print(registed_list)
+    return render_template("registed.html",register=registed_list)
 
 @app.route('/register',methods=['GET','POST'])
 def register():
-    return render_template("register.html")
+    result = request.args.get('result')
+    if request.method=="POST":
+        conn = sqlite3.connect('database.db',check_same_thread=False)
+        cursor = conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='register';")
+        exists = bool(cursor.fetchone())
+        if(exists):
+                id = request.form['id']
+                name = request.form['name']
+                address = request.form['address']
+                result = request.form['result']
+                print(result)
+                cursor.execute("SELECT * FROM register WHERE id=? AND name=? AND address=? AND type=?",
+                            (id,name,address,result))
+                email_id = cursor.fetchone()
+
+                if email_id is None:
+                    cursor.execute("INSERT INTO register (id, name, address, type) VALUES (?, ?, ?, ?)",
+                        (id, name, address, result))
+                    conn.commit()
+                    return redirect("/registed")
+        else:
+            createRegisterTable()
+            id = request.form['id']
+            name = request.form['name']
+            address = request.form['address']
+            result = request.form['result']
+            cursor.execute("INSERT INTO register (id, name, address, type) VALUES (?, ?, ?, ?)",
+                        (id, name, address, result))
+            conn.commit()
+            return redirect("/registed")
+            
+    return render_template("register.html",result = result)
 
 @app.route('/preview', methods=['GET','POST'])
 def preview():
@@ -60,7 +107,7 @@ def login():
                     return redirect("/predict")
                 else:
                     flash("Invalid credentials")
-                    return redirect(url_for('home'))
+                    return redirect("/login")
         else:
             createLoginTable()
             username = request.form['username']

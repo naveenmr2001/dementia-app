@@ -41,53 +41,27 @@ body{
     color:#FFFFFF;
 }
 
-.predict__container{
+.register__container{
     width:100%;
-    height:26.375rem;
-    margin-top: 5rem;
+    min-height:100vh;
+    margin-top: 3rem;
     background-color: #FFFFFF;
-    display: flex;
-    justify-content: center;
+
 }
 
-.predict__inner__container{
-    width:32rem;
+.register__inner__container{
+    width:100%;
     height:100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap:2rem;
+
 }
 
-.predict__header{
+.register__header{
     font-weight: 400;
     font-size:2rem;
     text-transform: uppercase;
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap:2rem;
+.register_content{
+    width:100%;
+    border : 2px solid black;
 }
-
-input[type="submit"]{
-    width:7.875rem;
-    height:2.813rem;
-    background-color: #542520;
-    color:#FFFFFF;
-    border-radius: 6px;
-    font-size:1.25rem;
-    font-weight: 400;
-    cursor: pointer;
-}
-
-.image-box {
-    border: 1px solid #ccc;
-    padding: 10px;
-    display: inline-block;
-    border-radius: 4px;
-  }

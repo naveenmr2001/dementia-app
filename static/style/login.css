@@ -57,13 +57,20 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap:2rem;
 }
 
 .login__header{
     font-weight: 400;
     font-size:2rem;
     text-transform: uppercase;
+}
+
+form{
+    gap:2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 label{
@@ -74,6 +81,15 @@ label{
 }
 
 input[type="text"]{
+    width:17.6rem;
+    height: 3.178rem;
+    border-radius: 5px;
+    border:1px solid #000000;
+    font-size: 1.25rem;
+    padding:2px 0px;
+}
+
+input[type="password"]{
     width:17.6rem;
     height: 3.178rem;
     border-radius: 5px;

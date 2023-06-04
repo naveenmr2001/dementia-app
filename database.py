@@ -20,3 +20,32 @@ def createLoginTable():
 
     conn.commit()
     conn.close()
+
+def createRegisterTable():
+    cursor = conn.cursor()
+
+    create_table_query = '''
+        CREATE TABLE register (
+            id TEXT NOT NULL,
+            name TEXT NOT NULL,
+            address TEXT NOT NULL,
+            type TEXT NOT NULL
+        )
+    '''
+
+    cursor.execute(create_table_query)
+
+    conn.commit()
+    conn.close()
+
+def droptableTable():
+    cursor = conn.cursor()
+
+    drop_table_query = '''
+        DROP TABLE register;
+    '''
+
+    cursor.execute(drop_table_query)
+
+    conn.commit()
+    conn.close()
